@@ -1,0 +1,18 @@
+# dsh-codebase-memory-cli — bundle patch
+#
+# Mounts the plugin row. Every launch value (exePath / commandStyle / cwd / env
+# / surface / expose / freshness / timeouts) comes from this row's `config`,
+# which DSH projects into the Settings form for the entry. Saving a field
+# restarts the plugin, and `apply` picks the new values up.
+#
+# The values below point at the CLI-first build of codebase-memory-cli and give
+# it a private cache + runtime directory, so its graph and its coordination
+# daemon never collide with another codebase-memory install on this machine.
+- insert:
+    - id: codebase-memory-cli
+      name: dsh-codebase-memory-cli
+      config:
+        exePath: 'D:/Users/ExLei/AppData/Local/Programs/codebase-memory-cli/codebase-memory-cli.exe'
+        env:
+          CBM_CACHE_DIR: 'D:/Users/ExLei/AppData/Local/codebase-memory-cli-data/cache'
+          CBM_RUNTIME_DIR: 'D:/Users/ExLei/AppData/Local/codebase-memory-cli-data/runtime'

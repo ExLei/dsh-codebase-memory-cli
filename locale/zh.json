@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "代码库记忆 CLI",
+    "description": "把本地 codebase-memory CLI 当子进程调用，只给 agent 精选的一小块操作面。每次读图之前先跑一次增量索引，所以回答不可能来自陈旧的图：唯一的判据就是 CLI 自己的增量索引调用，没有需要猜测的变更检测。在 9523 节点的仓库上实测每次约 3.3 秒，改不改文件都一样；把 refreshBeforeRead 设为 false 就关掉。默认 core 暴露面注册六个工具——codebase_projects、codebase_status、codebase_index、codebase_search、codebase_snippet、codebase_trace；full 额外加 codebase_coverage；gateway 只注册一个 codebase_memory，由它列出全部 CLI 操作并转发调用。exePath、commandStyle、cwd、env、surface、expose、refreshBeforeRead、indexMode 与各项超时都能在「设置 → 插件 → codebase-memory-cli」里改。需要本机已装 codebase-memory-cli 或 codebase-memory-mcp；两种命令形态都支持，按 --version 自动判断。"
+  }
+}

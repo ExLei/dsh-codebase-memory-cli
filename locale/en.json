@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Codebase memory CLI",
+    "description": "Runs the local codebase-memory CLI as a child process and gives the agent a curated slice of it. Every graph read re-indexes first, so an answer can never come from a stale graph: the CLI's incremental index call is the only freshness rule, and there is no change detection to get wrong. Measured on a 9.5k-node repository that is about 3.3 s per read, unchanged whether or not anything was edited; refreshBeforeRead: false turns it off. The default core surface registers six tools — codebase_projects, codebase_status, codebase_index, codebase_search, codebase_snippet, codebase_trace; full adds codebase_coverage, and gateway registers one codebase_memory tool that lists every CLI operation and forwards to it. exePath, commandStyle, cwd, env, surface, expose, refreshBeforeRead, indexMode and the timeouts are editable in Settings → Plugins → codebase-memory-cli. Requires a local codebase-memory-cli or codebase-memory-mcp binary; both command dialects are supported and picked automatically from --version."
+  }
+}
